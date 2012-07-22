@@ -1,8 +1,6 @@
-puts "INCLUDED"
 module Lolcommits
   module Configuration
     LOLBASEDIR = ENV['LOLCOMMITS_DIR'] || File.join(ENV['HOME'], '.lolcommits')
-    puts LOLBASEDIR
     LOLCOMMITS_ROOT = File.join(File.dirname(__FILE__), '../..')
 
     def self.platform
@@ -32,15 +30,13 @@ module Lolcommits
     def self.loldir
       return @loldir if @loldir
 
-      @basename ||= File.basename(Git.open('.').dir.to_s).sub(/^\./, 'dot')
-      @loldir = File.join(LOLBASEDIR, @basename)
+      basename ||= File.basename(Git.open('.').dir.to_s).sub(/^\./, 'dot')
+      basename.sub!(/ /, '-')
+      @loldir = File.join(LOLBASEDIR, basename)
 
       if not File.directory? @loldir
-        puts "Making: #{@loldir}"
-        puts $home
         FileUtils.mkdir_p @loldir
       end
-      puts "Should exist"
       @loldir
     end
 

@@ -8,20 +8,8 @@ Before do
   # Using "announce" causes massive warnings on 1.9.2
   @puts = true
   @original_rubylib = ENV['RUBYLIB']
-  @aruba_timeout_seconds = 20
+  @aruba_timeout_seconds = 10
   ENV['RUBYLIB'] = LIB_DIR + File::PATH_SEPARATOR + ENV['RUBYLIB'].to_s
-end
-
-When /^You successfully run `([^`]*)`$/ do |cmd|
-  puts "omg"
-  puts `#{cmd}`
-  puts "done"
-end
-
-
-def run_simple command
-  puts "Running command"
-  puts `#{command}`
 end
 
 After do
@@ -34,7 +22,6 @@ Before('@simulate-capture') do
 
   @original_loldir = ENV['LOLCOMMITS_DIR']
   ENV['LOLCOMMITS_DIR'] = File.join(current_dir, ".lolcommits")
-  puts ENV['LOLCOMMITS_DIR']
 end
 
 After('@simulate-capture') do

@@ -12,7 +12,7 @@ module Lolcommits
     end
 
     def capture
-      system("#{imagesnap_bin} -q #{snapshot_location} -w #{capture_delay} #{capture_device_string}")
+      system("#{imagesnap_bin} -q \"#{snapshot_location}\" -w #{capture_delay} #{capture_device_string}")
     end
 
   end

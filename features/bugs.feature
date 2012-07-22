@@ -12,9 +12,9 @@ Feature: Bug regression testing
     And an empty file named "test lolol/FOOBAR"
     
     When I cd to "test lolol"
-    And You successfully run `lolcommits --enable`
-    And You successfully run `git add .`
-    And You successfully run `git commit -m 'can haz commit'`
+    And I successfully run `lolcommits --enable`
+    And I successfully run `git add .`
+    And I successfully run `git commit -m 'can haz commit'`
     And a directory named "tmp/aruba/.lolcommits/test-lolol" should exist
 
 
