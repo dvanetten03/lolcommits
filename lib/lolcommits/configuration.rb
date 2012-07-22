@@ -37,6 +37,7 @@ module Lolcommits
 
       if not File.directory? @loldir
         puts "Making: #{@loldir}"
+        puts $home
         FileUtils.mkdir_p @loldir
       end
       puts "Should exist"
