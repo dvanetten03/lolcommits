@@ -36,8 +36,10 @@ module Lolcommits
       @loldir = File.join(LOLBASEDIR, @basename)
 
       if not File.directory? @loldir
+        puts "Making: #{@loldir}"
         FileUtils.mkdir_p @loldir
       end
+      puts "Should exist"
       @loldir
     end
 
