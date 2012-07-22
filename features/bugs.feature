@@ -15,7 +15,6 @@ Feature: Bug regression testing
     And You successfully run `lolcommits --enable`
     And You successfully run `git add .`
     And You successfully run `git commit -m 'can haz commit'`
-    Then the output should contain "*** Preserving this moment in history."
     And a directory named "tmp/aruba/.lolcommits/test-lolol" should exist
 
 
