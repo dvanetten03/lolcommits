@@ -29,6 +29,7 @@ module Lolcommits
       run_callbacks :run do
         puts "*** Preserving this moment in history."
         self.file = self.snapshot_loc = Configuration.raw_image(self.sha) 
+        raise self.file
         capturer = "Lolcommits::Capture#{Configuration.platform}".constantize.new(
           :capture_device    => self.capture_device, 
           :capture_delay     => self.capture_delay, 

@@ -1,6 +1,8 @@
+puts "INCLUDED"
 module Lolcommits
   module Configuration
-    LOLBASEDIR = File.join(ENV['HOME'], '.lolcommits')
+    LOLBASEDIR = ENV['LOLCOMMITS_DIR'] || File.join(ENV['HOME'], '.lolcommits')
+    puts LOLBASEDIR
     LOLCOMMITS_ROOT = File.join(File.dirname(__FILE__), '../..')
 
     def self.platform

@@ -7,7 +7,7 @@ module Lolcommits
 
       self.message = commit.message.split("\n").first
       self.sha     = commit.sha[0..10]
-      self.repo    = git.remote.url.split(':').last.gsub(/\.git\Z/, '')
+      self.repo    = git.remote.url.split(':').last.gsub(/\.git\Z/, '') if git.remote.url
     end
   end
 end
